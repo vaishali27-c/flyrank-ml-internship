@@ -38,15 +38,14 @@ The cost of making an incorrect recommendation is not the same in every case. If
 The analysis in this project uses data exclusively from the fact_daily_sample table in the FlyRank ML Internship Warehouse. The dataset combines search performance metrics from Google Search Console (GSC) with user engagement metrics from Google Analytics 4 (GA4). These features were selected because they provide a balanced view of both search visibility and user behavior. Table I summarizes the eight features used in this study.
 
 | Feature | Description |
-| --- | --- |
-| gsc_impressions Daily search impressions |   |
+|---------|-------------|
+| gsc_impressions | Daily search impressions |
 | gsc_clicks | Daily search clicks |
-| gsc_avg_position Average search ranking position |   |
+| gsc_avg_position | Average search ranking position |
 | ga4_pageviews | Total page views |
 | ga4_sessions | Number of sessions containing the page |
 | ga4_users | Number of unique users |
-| ga4_engaged_sessions | Sessions meeting the GA4 |
-|   | engagement criteria |
+| ga4_engaged_sessions | Sessions meeting the GA4 engagement criteria |
 | scroll_events | User scroll interaction events |
 
 To protect privacy, client names, page URLs, credentials, and any other client-identifying information were excluded from both the analysis and all project artifacts. Pseudonymous client identifiers were used only for grouping records during data splitting and were never included as model features.
@@ -86,15 +85,12 @@ The analysis showed that content refresh opportunities are best identified by co
 
 Table II maps model output to a fixed action vocabulary so acting on the top of the ranked list requires no further interpretation.
 
-| Priority Action | Reason Code | Confidence |
-| --- | --- | --- |
-| Refresh 1 | STALE_CONTENT High |   |
-| Content |   |   |
-| Review 2 | LOW_CTR Medium |   |
-| Metadata |   |   |
-| 3 | Monitor WATCH | Medium |
-| Keep As- 4 | NO_ACTION Low |   |
-| Is |   |   |
+| Priority | Action | Reason Code | Confidence |
+|----------|--------|-------------|------------|
+| 1 | Refresh Content | STALE_CONTENT | High |
+| 2 | Review Metadata | LOW_CTR | Medium |
+| 3 | Monitor | WATCH | Medium |
+| 4 | Keep As-Is | NO_ACTION | Low |
 
 *TABLE II. Editorial Action Playbook*
 
