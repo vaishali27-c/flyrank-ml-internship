@@ -33,7 +33,7 @@ The unit of analysis in this project is an individual content page, using histor
 
 The cost of making an incorrect recommendation is not the same in every case. If a page that genuinely needs a refresh is missed, it may continue to lose search visibility and organic traffic. On the other hand, recommending a healthy page for review usually results only in some extra editorial effort. For this reason, the project is designed to identify as many genuinely declining pages as possible, even if it occasionally recommends pages that do not require immediate action. This approach better reflects how content teams prioritize their work in real-world editorial workflows.
 
-## B. Data Contract and Safety
+## A. Data Contract and Safety
 
 The analysis in this project uses data exclusively from the fact_daily_sample table in the FlyRank ML Internship Warehouse. The dataset combines search performance metrics from Google Search Console (GSC) with user engagement metrics from Google Analytics 4 (GA4). These features were selected because they provide a balanced view of both search visibility and user behavior. Table I summarizes the eight features used in this study.
 
@@ -53,7 +53,7 @@ To protect privacy, client names, page URLs, credentials, and any other client-i
 
 Special attention was given to preventing data leakage. Features that directly or indirectly represented the target outcome, such as precomputed trend labels or percentage changes, were removed before model training. A final review of the dataset and project outputs confirmed that no client- identifying information or leakage-prone features were included, ensuring that the analysis remained both privacy- preserving and methodologically sound.
 
-## C. Baseline
+## B. Baseline
 
 Before training the machine learning model, a simple rule- based baseline was developed using the same eight features
 
@@ -61,7 +61,7 @@ selected for this study. The baseline assigns each page to one of four reason co
 
 The rule-based baseline also served as the primary benchmark for evaluating the Logistic Regression model. Both approaches were developed using the same feature set, observation window, and validation strategy to ensure a fair comparison. Rather than focusing only on overall accuracy, the baseline provided an interpretable reference for understanding how manually defined rules compare with a machine learning approach. Since the primary objective of this project was to develop a practical decision-support framework, the comparison emphasizes recommendation quality and transparency rather than benchmark optimization.
 
-## D. Model / Analysis
+## C. Model / Analysis
 
 Logistic Regression was selected as the primary machine learning model because it provides a good balance between performance and interpretability. The dataset contains a relatively small set of numerical features, making Logistic Regression an appropriate choice for learning relationships between search and engagement metrics without introducing unnecessary model complexity. Another advantage is that the model coefficients can be interpreted easily, helping editors understand which factors contribute most to a refresh recommendation. Compared with more complex models, Logistic Regression also reduces the risk of overfitting, especially when working with a limited number of features and an anonymized dataset.
 
@@ -74,11 +74,11 @@ For a feature vector x, the Logistic Regression model estimates the probability 
 
 where β₀ represents the intercept term and β represents the vector of learned coefficients. The model was trained using L2 regularization, which helps prevent overfitting by limiting excessively large coefficient values and improving the model's ability to generalize to unseen data.
 
-## E. Evaluation
+## D. Evaluation
 
 The proposed model was evaluated using both a standard train-test split and a time-aware validation strategy. Since the available sample contained only a single reporting date, a fully independent temporal validation was not possible, and the evaluation reverted to the standard split. The same feature set, observation window, and validation procedure were used for both the rule-based baseline and the Logistic Regression model to ensure a fair comparison. A leakage audit was also performed to verify that no feature was derived from the target label or future information. The evaluation showed that the proposed framework provides a reliable and transparent approach for prioritizing content refresh opportunities while maintaining consistency with the baseline methodology.
 
-## F. Interpretation
+## E. Interpretation
 
 The analysis showed that content refresh opportunities are best identified by considering multiple search visibility and user engagement signals together rather than relying on a single metric. Pages with declining impressions, lower click- through rates, and reduced engagement were generally assigned higher refresh priority. The Logistic Regression model captured these combined patterns more effectively than the rule-based baseline while remaining easy to interpret. Some recommendations for pages with limited historical data were less reliable, highlighting the importance of human review before making editorial decisions. Overall, the results demonstrate that the proposed approach can support content teams by providing practical, transparent, and evidence-based refresh recommendations.
 
