@@ -129,4 +129,4 @@ The implementation uses Python together with **Pandas, NumPy, DuckDB, Scikit-lea
 
 ## ACKNOWLEDGMENT
 
-The author gratefully acknowledges FlyRank for providing access to the anonymized FlyRank ML Internship Dataset, which enabled the development and evaluation of this content opportunity scoring framework. All analyses were performed on anonymized search and engagement data, and no client names, URLs, or proprietary business information were included in this research.
+The author sincerely thanks FlyRank for providing the anonymized FlyRank ML Internship Warehouse dataset and the structured internship program that made this project possible. The guidance provided through the weekly assignments, notebooks, and research-oriented workflow helped shape the development of this capstone. Appreciation is also extended to the open-source communities behind Python, DuckDB, Pandas, NumPy, Scikit-learn, and Matplotlib, whose tools supported the implementation and evaluation of this work.
