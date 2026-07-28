@@ -32,14 +32,6 @@ The project emphasizes reproducibility, transparency, leakage prevention, and re
 
 ---
 
-# Project Workflow
-
-<p align="center">
-<img src="work/figures/workflow.png" width="900">
-</p>
-
----
-
 # Methodology
 
 The project follows an end-to-end applied machine learning workflow:
